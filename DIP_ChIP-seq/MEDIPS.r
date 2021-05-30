@@ -17,15 +17,15 @@ dips <- function(x) {
     Set = dip,
     CSet = CS,
     file = paste(
-      sub(pattern = "trimmed.bam", replacement = "", x),
-      "MEDIPS_bs-50.wig",
+      sub(pattern = ".bam", replacement = "", x),
+      ".wig",
       sep = ""
     ),
     format = "rms"
   )
 }
 
-dips("1KO_medip-G1.bam")
-dips("1KO_medip-G2.bam")
-dips("1KO_hmedip-G1.bam")
-dips("1KO_hmedip-G2.bam")
+dips("1KO_5mC_G1.bam")
+dips("1KO_5mC_G2.bam")
+dips("1KO_5hmC_G1.bam")
+dips("1KO_5hmC_G2.bam")

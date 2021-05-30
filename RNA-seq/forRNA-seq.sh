@@ -45,7 +45,7 @@ do
 done
 
 # makeBedGraph
-hm=$(cat <<__EOF__
+sample=$(cat <<__EOF__
 d0_1KO
 d0_CI6
 d0_WT
@@ -58,7 +58,7 @@ d4_WT
 __EOF__
 )
 
-for i in ${hm[@]}
+for i in ${sample[@]}
 do
    makeUCSCfile $i -fragLength given -o auto
 done
