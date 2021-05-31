@@ -1,6 +1,7 @@
 #!/bin/sh
 
-# downroad fastq file
+# ChIP-seq
+# download fastq file
 SRR=$(
   cat <<srr
 SRR5077640
@@ -50,5 +51,12 @@ macs2 callpeak -f BAM -g mm -q 0.01 --broad \
   -t GSM2417112_ESC_H3K9me3_sorted.bam
 
 # ATAC-seq
-wget 'https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM2417nnn/GSM2417076/suppl/GSM2417076_ESC_ATAC.bed.gz'
-tar -xzf GSM2417076_ESC_ATAC.bed.gz
+# download fastq file
+prefetch SRR5077752
+fasterq-dump SRR5077752
+
+# QC and trimming
+trimgalore --no_repot_file --cores 8 -o *.fq
+
+# mapping
+bowtie2 -p 8 -x refgenome/bt
