@@ -23,17 +23,4 @@ for wig in $(ls *.wig); do
 done
 
 # computeMatrix
-# 5mC
-computeMatrix reference-point -p 10 \
-  -bs 100 -a 2500 -b 2500 --referencePoint center \
-  --skipZeros \
-  -o 5mC_narrowPeak.txt.gz \
-  -R *.narrowPeak *.broadPeak \
-  -S 1KO_5mC_G1.bw 1KO_5mC_G2.bw
-# 5hmC
-computeMatrix reference-point -p 10 \
-  -bs 100 -a 2500 -b 2500 --referencePoint center \
-  --skipZeros \
-  -o 5hmC_narrowPeak.txt.gz \
-  -R *.narrowPeak *.broadPeak \
-  -S 1KO_5hmC_G1.bw 1KO_5hmC_G2.bw
+computeMatrix reference-point --skipZeros -p 6 -bs 100 -a 2500 -b 2500 --referencePoint center -o 5mC_narrowPeak.txt.gz -R *.narrowPeak *.broadPeak -S 1KO_5mC_G1.bw 1KO_5mC_G2.bw 1KO_5hmC_G1.bw 1KO_5hmC_G2.bw
